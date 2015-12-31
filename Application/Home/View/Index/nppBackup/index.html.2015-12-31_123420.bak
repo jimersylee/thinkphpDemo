@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 3, from LayoutIt!</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Public/css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+	<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span6">
+			<h3>
+				THINKPHP Demo
+			</h3>
+			<div class="tabbable" id="tabs-968640">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-215732" data-toggle="tab">目录</a>
+					</li>
+					<li>
+						<a href="#panel-65300" data-toggle="tab">搜索</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-215732">
+						<ul class="unstyled">
+							<li>
+								新闻资讯
+							</li>
+							<li>
+								体育竞技
+							</li>
+							<li>
+								娱乐八卦
+							</li>
+							<li>
+								前沿科技
+							</li>
+							<li>
+								环球财经
+							</li>
+							<li>
+								天气预报
+							</li>
+							<li>
+								房产家居
+							</li>
+							<li>
+								网络游戏
+							</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="panel-65300">
+						<form class="form-search">
+							<input class="input-medium search-query" type="text" /> <button type="submit" class="btn">搜索</button>
+						</form>
+						<ul class="unstyled">
+							<li>
+								新闻资讯
+							</li>
+							<li>
+								体育竞技
+							</li>
+							<li>
+								娱乐八卦
+							</li>
+							<li>
+								前沿科技
+							</li>
+							<li>
+								环球财经
+							</li>
+							<li>
+								天气预报
+							</li>
+							<li>
+								房产家居
+							</li>
+							<li>
+								网络游戏
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span6">
+			<p>
+				<em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+			</p>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="pagination pagination-centered">
+						<ul>
+							<li>
+								<a href="#">上一页</a>
+							</li>
+							<li>
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#">下一页</a>
+							</li>
+						</ul>
+					</div>
+					<form>
+						<fieldset>
+							 <legend>相关评论</legend> <label>文明评论</label><input type="text" /> <span class="help-block">理性发言</span> <label class="checkbox"><input type="checkbox" /> 你敢对你的言论负责么</label> <button type="submit" class="btn">提交</button>
+						</fieldset>
+					</form>
+					<ul class="thumbnails">
+						<li class="span4">
+							<div class="thumbnail">
+								<img alt="300x200" src="img/people.jpg" />
+								<div class="caption">
+									<h3>
+										路人甲
+									</h3>
+									<p>
+										这文章纯属扯淡
+									</p>
+									<p>
+										<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="span4">
+							<div class="thumbnail">
+								<img alt="300x200" src="img/city.jpg" />
+								<div class="caption">
+									<h3>
+										路人乙
+									</h3>
+									<p>
+										这文章纯属扯淡
+									</p>
+									<p>
+										<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="span4">
+							<div class="thumbnail">
+								<img alt="300x200" src="img/sports.jpg" />
+								<div class="caption">
+									<h3>
+										路人丙
+									</h3>
+									<p>
+										狂赞不止
+									</p>
+									<p>
+										<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a>
+									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4">
+			 <address> <strong>Jimersy Lee.</strong><br /> HangZhou YiBai Tec.inc<br /> <abbr title="email">Email:</abbr> jimersylee@gmail.com</address> <span class="label">opensource GPL 3.0</span>
+		</div>
+		<div class="span4">
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+    
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

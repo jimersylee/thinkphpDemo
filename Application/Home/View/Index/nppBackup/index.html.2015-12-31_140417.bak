@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap 3, from LayoutIt!</title>
+    <meta name="description" content="Source code generated using layoutit.com" />
+    <meta name="author" content="LayoutIt!" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>ThinkPHP Demo 文档</h3>
+      </div>
+      <div class="col-md-9"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="tabbable" id="tabs-97483">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#panel-830309" data-toggle="tab">目录</a>
+            </li>
+            <li class="">
+              <a href="#panel-965253" data-toggle="tab">搜索</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="panel-830309">
+              <ul class="list-unstyled" contenteditable="true">
+                <li>新闻资讯</li>
+                <li>体育竞技</li>
+                <li>娱乐八卦</li>
+                <li>前沿科技</li>
+                <li>环球财经</li>
+                <li>天气预报</li>
+                <li>房产家居</li>
+                <li>网络游戏</li>
+              </ul>
+            </div>
+            <div class="tab-pane" id="panel-965253">
+              <form class="form-search">
+              <input class="input-medium search-query" type="text" /> 
+              <button type="submit" class="btn" contenteditable="true">搜索</button>
+			  </form>
+			  <ul class="list-unstyled" contenteditable="true">
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <p>
+		快速入门 11：Action参数绑定
+快速入门（十一）：Action参数绑定
+
+从本章开始，我们陆续为大家介绍下控制器的一些高级特性用法，让你更深入了解ThinkPHP控制器的独特功能。
+Action参数绑定
+
+在之前的内容中，涉及的控制器操作方法都是没有任何参数的，其实ThinkPHP可以支持操作方法的参数绑定功能。
+
+Action参数绑定是通过直接绑定URL地址中的变量作为操作方法的参数，可以简化方法的定义甚至路由的解析,其原理是把URL中的参数（不包括模块、控制器和操作名）和控制器的操作方法中的参数（按变量名或者变量顺序）进行绑定。
+按变量名绑定
+
+默认的参数绑定方式是按照变量名进行绑定，例如，我们给Blog控制器定义了两个操作方法read和archive方法，由于read操作需要指定一个id参数，archive方法需要指定年份（year）和月份（month）两个参数，那么我们可以如下定义：
+
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class BlogController extends Controller{
+    public function read($id){
+        echo 'id='.$id;
+    }
+
+    public function archive($year='2013',$month='01'){
+        echo 'year='.$year.'&month='.$month;
+    }
+}
+
+    注意这里的操作方法并没有具体的业务逻辑，只是简单的示范。
+
+URL的访问地址分别是：
+
+http://serverName/index.php/Home/Blog/read/id/5
+http://serverName/index.php/Home/Blog/archive/year/2013/month/11
+
+两个URL地址中的id参数和year和month参数会自动和read操作方法以及archive操作方法的同名参数绑定。
+
+    变量名绑定不一定由访问URL决定，路由地址也能起到相同的作用
+
+输出的结果依次是：
+
+id=5
+year=2013&month=11
+
+按照变量名进行参数绑定的参数必须和URL中传入的变量名称一致，但是参数顺序不需要一致。也就是说
+
+http://serverName/index.php/Home/Blog/archive/month/11/year/2013
+
+和上面的访问结果是一致的，URL中的参数顺序和操作方法中的参数顺序都可以随意调整，关键是确保参数名称一致即可。
+
+如果使用下面的URL地址进行访问，参数绑定仍然有效：
+
+http://serverName/index.php?s=/Home/Blog/read/id/5
+http://serverName/index.php?s=/Home/Blog/archive/year/2013/month/11
+http://serverName/index.php?c=Blog&a=read&id=5
+http://serverName/index.php?c=Blog&a=archive&year=2013&month=11
+
+如果用户访问的URL地址是（至于为什么会这么访问暂且不提）：
+
+http://serverName/index.php/Home/Blog/read/
+
+那么会抛出下面的异常提示： 参数错误:id
+
+报错的原因很简单，因为在执行read操作方法的时候，id参数是必须传入参数的，但是方法无法从URL地址中获取正确的id参数信息。由于我们不能相信用户的任何输入，因此建议你给read方法的id参数添加默认值，例如：
+
+    public function read($id=0){
+        echo 'id='.$id;
+    }
+
+这样，当我们访问 http://serverName/index.php/Home/Blog/read/ 的时候 就会输出
+
+id=0
+
+当我们访问 http://serverName/index.php/Home/Blog/archive/ 的时候，输出：
+
+year=2013&month=01
+
+    始终给操作方法的参数定义默认值是一个避免报错的好办法
+
+按变量顺序绑定
+
+第二种方式是按照变量的顺序绑定，这种情况下URL地址中的参数顺序非常重要，不能随意调整。要按照变量顺序进行绑定，必须先设置URL_PARAMS_BIND_TYPE为1：
+
+'URL_PARAMS_BIND_TYPE'  =>  1, // 设置参数绑定按照变量顺序绑定
+
+操作方法的定义不需要改变，URL的访问地址分别改成：
+
+http://serverName/index.php/Home/Blog/read/5
+http://serverName/index.php/Home/Blog/archive/2013/11
+
+输出的结果依次是：
+
+id=5
+year=2013&month=11
+
+这个时候如果改成
+
+http://serverName/index.php/Home/Blog/archive/11/2013
+
+输出的结果就变成了：
+
+year=11&month=2013
+
+显然就有问题了，所以不能随意调整参数在URL中的传递顺序，要确保和你的操作方法定义顺序一致。
+
+    可以看到，这种参数绑定的效果有点类似于简单的规则路由。
+
+按变量顺序绑定的方式目前仅对PATHINFO地址有效，所以下面的URL访问参数绑定会失效：
+
+http://serverName/index.php?c=Blog&a=read&id=5
+http://serverName/index.php?c=Blog&a=archive&year=2013&month=11
+
+但是，兼容模式URL地址访问依然有效：
+
+http://serverName/index.php?s=/Home/Blog/read/5
+http://serverName/index.php?s=/Home/Blog/archive/2013/11
+
+如果你的操作方法定义都不带任何参数或者不希望使用该功能的话，可以关闭参数绑定功能：
+
+'URL_PARAMS_BIND'       =>  false
+		</p>
+        <ul class="pagination pagination-centered">
+          <li>
+            <a href="#">快速入门1</a>
+          </li>
+        
+          <li>
+            <a href="#">快速入门3</a>
+          </li>
+        </ul>
+		
+		
+				
+				
+				
+        <form>
+					<fieldset>
+					<legend contenteditable="true">相关评论</legend>
+					<label contenteditable="true">文明评论</label>
+					<input placeholder="Type something…" type="text">
+					<span class="help-block" contenteditable="true">理性发言</span>
+					
+					<button type="submit" class="btn" contenteditable="true">提交</button>
+					</fieldset>
+				</form>
+				
+				
+				<div class="media">
+				 <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/64/64/" class="media-object" /></a>
+				<div class="media-body">
+					<h4 class="media-heading">
+						路人甲
+					</h4> 顶
+					<div class="media">
+						 <a href="#" class="pull-left"><img alt="Bootstrap Media Another Preview" src="http://lorempixel.com/64/64/" class="media-object" /></a>
+						<div class="media-body">
+							<h4 class="media-heading">
+								路人甲的粉丝
+							</h4> 我是路人甲脑残粉~
+						</div>
+					</div>
+				</div>
+				<div class="media">
+						 <a href="#" class="pull-left"><img alt="Bootstrap Media Another Preview" src="http://lorempixel.com/64/64/" class="media-object" /></a>
+						<div class="media-body">
+							<h4 class="media-heading">
+								路人乙
+							</h4> 完全看不懂
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+              
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        
+      </div>
+      <div class="col-md-4">
+		<address>
+        <strong>Jimersy Lee</strong>
+        <br />HangZhou YiBai Tec.inc
+        <br />jimersylee@gmail.com
+        <br />
+        <abbr title="Phone">P:</abbr> (123) 456-7890</address>
+        <span class="label label-danger">GPL Lisense</span>
+	  
+	  </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/bootstrap.min.js"></script> 
+  <script src="js/scripts.js"></script></body>
+</html>

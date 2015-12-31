@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{$title.title}</title>
+  
+    
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>{$title.title}</h3>
+      </div>
+      <div class="col-md-9"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="tabbable" id="tabs-97483">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#panel-830309" data-toggle="tab">目录</a>
+            </li>
+            <li class="">
+              <a href="#panel-965253" data-toggle="tab">搜索</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="panel-830309">
+              <ul class="list-unstyled" contenteditable="true">
+                <volist name="childTitle" id="vo">
+					<li ><a href="#">{$vo.title}</a></li>
+					</volist>
+				<!渲染子标题列表,并加链接>
+				
+	
+              </ul>
+            </div>
+            <div class="tab-pane" id="panel-965253">
+              <form class="form-search">
+              <input class="input-medium search-query" type="text" /> 
+              <button type="submit" class="btn" contenteditable="true">搜索</button>
+			  </form>
+			  <ul class="list-unstyled" contenteditable="true">
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+                <li>搜索结果1</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+		<div class="col-md-12">
+		<address>
+        <strong>Jimersy Lee</strong>
+        <br />HangZhou YiBai Tec.inc
+        <br />jimersylee@gmail.com
+        <br />
+        <abbr title="Phone">P:</abbr> (123) 456-7890</address>
+        <span class="label label-danger">GPL Lisense</span>
+	  
+		</div>
+      </div>
+      <div class="col-md-9">
+        <p>
+	    {$article.content}
+		</p>
+        <ul class="pagination pagination-centered">
+          <li>
+            <a href="#">快速入门1</a>
+          </li>
+        
+          <li>
+            <a href="#">快速入门3</a>
+          </li>
+        </ul>
+		
+		
+				
+				
+				
+        <form>
+					<fieldset>
+					<legend contenteditable="true">相关评论</legend>
+					<label contenteditable="true">文明评论</label>
+					<input placeholder="Type something…" type="text">
+					<span class="help-block" contenteditable="true">理性发言</span>
+					
+					<button type="submit" class="btn" contenteditable="true">提交</button>
+					</fieldset>
+				</form>
+				
+				
+				<div class="media">
+				 <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/64/64/" class="media-object" /></a>
+				<div class="media-body">
+					<h4 class="media-heading">
+						路人甲
+					</h4> 顶
+					<div class="media">
+						 <a href="#" class="pull-left"><img alt="Bootstrap Media Another Preview" src="__PUBLIC__/img/ava.jpg" class="media-object" /></a>
+						<div class="media-body">
+							<h4 class="media-heading">
+								路人甲的粉丝
+							</h4> 我是路人甲脑残粉~
+						</div>
+					</div>
+				</div>
+				<div class="media">
+						 <a href="#" class="pull-left"><img alt="Bootstrap Media Another Preview" src="__PUBLIC__/img/ava.jpg" class="media-object" /></a>
+						<div class="media-body">
+							<h4 class="media-heading">
+								路人乙
+							</h4> 完全看不懂
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+              
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        
+      </div>
+      <div class="col-md-4">
+		
+	  </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+  <script src="__PUBLIC__/js/jquery.min.js"></script> 
+  <script src="__PUBLIC__/js/bootstrap.min.js"></script> 
+  <script src="__PUBLIC__/js/scripts.js"></script></body>
+</html>

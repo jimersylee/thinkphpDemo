@@ -1,0 +1,23 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class IndexController extends Controller {
+    public function index($ID=1){
+        //查找数据库的过程
+		//$title='快速入门1';
+		$article=M('article');
+		//$sql['title']=$title;
+		
+		//select 语句存在问题
+		$result=$article->find($ID);
+		//$result=$article->find(3);
+		$this->assign('article',$result);
+		$this->display();
+		
+    }
+	public function edit(){
+		$this->display();
+		
+	}
+	
+}
